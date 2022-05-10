@@ -1,9 +1,7 @@
 
 var currentdayEl= $('#currentDay');
-var colorcodeEl= $('.colorcode');
-var savebuttonEl=$('#savebutton');
-var textEl="";
-var toDos=[];
+var savebuttonEl=$('.saveBtn');
+var todoList=[];
 
 
 var current= moment();
@@ -11,22 +9,31 @@ var today=current.format('dddd, MMM Do');
 currentdayEl.text(today);
 
 
-if(current.format('HH')>9){
-    console.log(current.hour());
-    colorcodeEl.css("background","red")
-}else{
-    colorcodeEl.css("background","green")
+for(var i=8;i<17;i++){
+    if(current.format('HH')>i){
+        $("[data-hr=" + i + "]").children('textarea').addClass('past');
+    }else if(current.format('HH')=i){
+        $("[data-hr=" + i + "]").children('textarea').addClass('present');
+    }else{
+        $("[data-hr=" + i + "]").children('textarea').addClass('future');
+    }
 }
 
 
 savebuttonEl.on('click',function(){
-    textEl= $('#text').val();
-    localStorage.setItem("todos", JSON.stringify(textEl));
+    var hourData= $(this).parent().attr('data-hr');
+    var textData= ($(this).parent().children('textarea')).val();
+    todoList[hourData]= textData;
+
+    localStorage.setItem("todos", JSON.stringify(todoList));
+    console.log(todoList);
 })
 
 function loadTodo(){
-    toDos=JSON.parse(localStorage.getItem("todos"));
-    $('#text').val(toDos);
+    todoList=JSON.parse(localStorage.getItem("todos"));
+    for (var i=8;i<todoList.length;i++){;
+        $("[data-hr=" + i + "]").children('textarea').val(todoList[i]);
+    }   
 }
 
 

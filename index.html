@@ -29,15 +29,19 @@
   <body>
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p class="lead description">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-      <div class="row">
-        <div class="col-1">9am</div>
-        <textarea id= "text" class="col-10 colorcode">
-        </textarea>
-        <button id= "savebutton" class="col-1">save</button>
+      <div class="time-block row" data-hr="8">
+        <div class="hour col-1">8am</div>
+        <textarea class= "col-10"></textarea>
+        <button class= "saveBtn col-1">save</button>
+      </div>
+      <div class= "time-block row" data-hr="9">
+        <div class="hour col-1">9am</div>
+        <textarea class= "col-10"></textarea>
+        <button class= "saveBtn col-1">save</button>
       </div>
       
       <!-- Timeblocks go here -->
