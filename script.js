@@ -1,4 +1,3 @@
-
 var currentdayEl= $('#currentDay');
 var savebuttonEl=$('.saveBtn');
 var todoList=[];
@@ -40,5 +39,8 @@ function loadTodo(){
     }   
 }
 
-
-loadTodo();
+document.addEventListener('readystatechange', function() {
+    if (document.readyState === "complete") {
+    loadTodo();
+    }
+})
