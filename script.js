@@ -23,6 +23,7 @@ for(var i=8;i<18;i++){
 savebuttonEl.on('click',function(){
     var hourData= $(this).parent().attr('data-hr');
     var textData= ($(this).parent().children('textarea')).val();
+    console.log(todoList);
     todoList[hourData]= textData;
 
     localStorage.setItem("todos", JSON.stringify(todoList));
@@ -31,6 +32,9 @@ savebuttonEl.on('click',function(){
 
 function loadTodo(){
     todoList=JSON.parse(localStorage.getItem("todos"));
+    if(!todoList){
+        return;
+    }
     for (var i=8;i<18;i++){;
         $("[data-hr=" + i + "]").children('textarea').val(todoList[i]);
     }   
