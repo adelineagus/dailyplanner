@@ -9,10 +9,10 @@ var today=current.format('dddd, MMM Do');
 currentdayEl.text(today);
 
 
-for(var i=8;i<17;i++){
+for(var i=8;i<23;i++){
     if(current.format('HH')>i){
         $("[data-hr=" + i + "]").children('textarea').addClass('past');
-    }else if(current.format('HH')=i){
+    }else if(current.format('HH')==i){
         $("[data-hr=" + i + "]").children('textarea').addClass('present');
     }else{
         $("[data-hr=" + i + "]").children('textarea').addClass('future');
