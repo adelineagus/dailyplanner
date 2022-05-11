@@ -9,7 +9,7 @@ var today=current.format('dddd, MMM Do');
 currentdayEl.text(today);
 
 
-for(var i=8;i<23;i++){
+for(var i=8;i<18;i++){
     if(current.format('HH')>i){
         $("[data-hr=" + i + "]").children('textarea').addClass('past');
     }else if(current.format('HH')==i){
@@ -31,7 +31,7 @@ savebuttonEl.on('click',function(){
 
 function loadTodo(){
     todoList=JSON.parse(localStorage.getItem("todos"));
-    for (var i=8;i<todoList.length;i++){;
+    for (var i=8;i<18;i++){;
         $("[data-hr=" + i + "]").children('textarea').val(todoList[i]);
     }   
 }
