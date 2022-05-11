@@ -20,7 +20,8 @@ for(var i=8;i<18;i++){
 
 
 savebuttonEl.on('click',function(){
-    var hourData= $(this).parent().attr('data-hr');
+    var hourData= parseInt($(this).parent().attr('data-hr'));
+    console.log(hourData);
     var textData= ($(this).parent().children('textarea')).val();
     console.log(todoList);
     todoList[hourData]= textData;
@@ -39,8 +40,4 @@ function loadTodo(){
     }   
 }
 
-document.addEventListener('readystatechange', function() {
-    if (document.readyState === "complete") {
-    loadTodo();
-    }
-})
+loadTodo();
