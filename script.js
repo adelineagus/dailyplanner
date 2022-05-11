@@ -21,23 +21,20 @@ for(var i=8;i<18;i++){
 
 savebuttonEl.on('click',function(){
     var hourData= parseInt($(this).parent().attr('data-hr'));
-    console.log(hourData);
     var textData= ($(this).parent().children('textarea')).val();
-    console.log(todoList);
+    console.log(textData);
     todoList[hourData]= textData;
 
-    localStorage.setItem("todos", JSON.stringify(todoList));
-    console.log(todoList);
+    localStorage.setItem("todolist", JSON.stringify(todoList));
 })
 
 function loadTodo(){
-    todoList=JSON.parse(localStorage.getItem("todos"));
-    if(!todoList){
-        return;
-    }
+    todoList=JSON.parse(localStorage.getItem("todolist"));
     for (var i=8;i<18;i++){;
         $("[data-hr=" + i + "]").children('textarea').val(todoList[i]);
     }   
 }
 
-loadTodo();
+if(localStorage.getItem("todolist")){
+    loadTodo();
+} 
