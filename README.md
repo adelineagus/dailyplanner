@@ -9,7 +9,8 @@ Achievements:
 4. When save button is clicked, events will be saved in local storage and remained on timeblocks even when refreshed 
 
 
-
+Application: https://adelineagus.github.io/dailyplanner/
+GitHub: https://github.com/adelineagus/dailyplanner
 Screenshot: 
-
-Website:
+[link](./images/first%20section.png)
+[link](./images/second%20section.png)

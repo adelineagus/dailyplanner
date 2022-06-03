@@ -14,7 +14,7 @@ if(localStorage.getItem("todolist")){
 } 
 
 //based on current hour, decide whether time for each blocks has happened, is happening, or still hasn't happened
-    //adding class of past/present/future depending on the determination
+    //adding class of past/present/future depending on the determination --> will determine color of blocks
     //variable i is representing each time that is assigned to the blocks
 for(var i=8;i<18;i++){
     if(current.format('HH')>i){
